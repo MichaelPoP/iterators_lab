@@ -4,7 +4,13 @@ var Iterators = {
   // - tripler([1,2,3]) should return [3,6,9], and
   // - tripler([7,50,4]) should return [21,150,12].
   // Use `map` to accomplish this.
+  //DONT CHANGE THE FOLLOWING LINE
+  //NOTHING NEEDS TO BE DECLARED OUTSIDE THIS
   tripler: function (numbers) {
+    return numbers.map(function(n) {
+          return n * 3;
+    });
+    
   },
 
   // perfectSquares() should take an array of numbers as a parameter
@@ -16,6 +22,9 @@ var Iterators = {
   // - perfectSquares([1,4,9]) should return [1,4,9].
   // Use `filter` to accomplish this.
   perfectSquares: function (numbers) {
+    return numbers.filter(function(n) {
+         return  Math.sqrt(n) % 1 === 0;
+    });
   },
 
   // product() should accept an array of numbers as a parameter
@@ -26,6 +35,10 @@ var Iterators = {
   // - product([100,200,300]) should return 6000000.
   // Use `reduce` to accomplish this.
   product: function (numbers) {
+    return numbers.reduce(function(n, m) {
+       return n * m;
+
+    });
   },
 
   // hasInstructor() accepts an array of names and should return true
@@ -39,6 +52,11 @@ var Iterators = {
   // Use `some` to accomplish this.
   // Hint: see `toLowerCase`, it could be useful.
   hasInstructor: function (names) {
+    var instructor = ["tim", "elie", "alex"];
+    return names.some(function(nam) {
+      return instructor.indexOf(nam.toLowerCase()) >= 0;
+
+    });
   },
 
   // allSamePlayer() should accept an array of players, represented by
@@ -53,6 +71,16 @@ var Iterators = {
   // - allSamePlayer(["_","_","_"]) should return false.
   // Use `every` to accomplish this.
   allSamePlayer: function (players) {
+    return players.every(function(player) {
+      if (player == "O") {
+         return true;
+      } else if (player == "X") {
+        return false;
+      }
+
+      
+      
+    });
   },
 
   // Also not an iterator metheod, necessarily. devowel() takes a
@@ -68,7 +96,9 @@ var Iterators = {
   // - devowel("Howdy") should return "Hwdy",
   // - devowel("Phone's ringing, dude.") should return "Phn's rngng, dd.".
   devowel: function (text) {
+     var vowels = ["a", "e", "i", "o", "u"];
   }
 };
-
+//ALLOWS WHAT IS IN THIS DIRECTORY TO BE SEEN BY THE OUTSIDE
+//SPECIFICALLY THIS ALLOWS THE iterators_test.js file to take this file in as a requirement
 module.exports = Iterators;
